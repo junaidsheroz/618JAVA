@@ -81,7 +81,7 @@ class FreshFruit extends Product {
     public String toString() {
         return super.toString()+"\nWeight: "+weight+" grams";
     }
-};
+}
 
 class PackagedItem extends Product {
     private int quantity;
