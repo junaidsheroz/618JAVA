@@ -119,3 +119,17 @@ class PackagedItem extends Product {
 
 
 // main class
+public class Main {
+    public static void main(String[] args) {
+        Product product = new Product("1", "Apple", "Fruit", 1.5, 1);
+        System.out.println(product.toString());
+        System.out.println();
+
+        FreshFruit freshFruit = new FreshFruit("2", "Orange", "Fruit", 2.5, 100);
+        System.out.println(freshFruit.toString());
+        System.out.println();
+
+        PackagedItem packagedItem = new PackagedItem("3", "Milk", "Dairy", 2.5, 1, "12/12/2021");
+        System.out.println(packagedItem.toString());
+    }
+}
