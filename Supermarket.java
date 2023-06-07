@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 class Product {
     private String id;
     private String name;
@@ -136,9 +140,7 @@ class PackagedItem extends Product {
 //     }
 // }
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
 
 public class Supermarket {
     private List<Product> products;
@@ -163,7 +165,7 @@ public class Supermarket {
         double totalAmount = 0.0;
         for (Product product : products) {
             if (selectedProductIds.contains(product.getId())) {
-                totalAmount += product.getAmount();
+                totalAmount += product.getPrice();
             }
         }
         return totalAmount;
@@ -173,7 +175,7 @@ public class Supermarket {
         double totalTax = 0.0;
         for (Product product : products) {
             if (selectedProductIds.contains(product.getId())) {
-                totalTax += product.getAmount() - product.getPrice();
+                totalTax += product.getAmount();
             }
         }
         return totalTax;
@@ -215,8 +217,10 @@ public class Supermarket {
         System.out.println("Docket:");
         double totalAmount = supermarket.calculateTotalAmount(selectedProductIds);
         double totalTax = supermarket.calculateTotalTax(selectedProductIds);
-        System.out.println("Total Amount Due: " + totalAmount);
-        System.out.println("Total Tax: " + totalTax);
+        double grandTotal = totalAmount + totalTax;
+        System.out.println("Total Amount Due: $ " + totalAmount);
+        System.out.println("Total Tax: $ " + totalTax);
+        System.out.println("Grand Total: $ " + grandTotal);
 
         scanner.close();
     }
