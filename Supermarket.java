@@ -153,7 +153,7 @@ public class Supermarket {
         products.add(product);
     }
 
-    public void displayProductMenu() {
+    public void displatMenu() {
         System.out.println("Product Menu:");
         for (Product product : products) {
             System.out.println(product);
@@ -199,7 +199,7 @@ public class Supermarket {
         supermarket.addProduct(new PackagedItem("P005", "Chips", "Snacks", 2.0, 5, "25/12/2020"));
 
         // Display the product menu
-        supermarket.displayProductMenu();
+        supermarket.displatMenu();
 
         // Ask users to select products
         Scanner scanner = new Scanner(System.in);
