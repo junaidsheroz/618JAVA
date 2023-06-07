@@ -97,7 +97,8 @@ class FreshFruit extends Product {
     }
 
     // PolyMorphism is used here. toString method is overridden here
-    @Override
+    // polymorphism is used here in the form of method overriding
+    @Override // toString method is overridden here
     public String toString() {
         return super.toString()+"\nWeight: "+weight+" grams";
     }
@@ -141,6 +142,7 @@ class PackagedItem extends Product {
 
     // PolyMorphism is used here. toString method is overridden here
     // toString method is overridden here
+    // polymorphism is used here in the form of method overriding
     @Override
     public String toString() {
         return super.toString()+"\nQuantity: " + quantity+"\nUse-By Date: "+useByDate;
