@@ -106,16 +106,19 @@ class FreshFruit extends Product {
 // PackagedItem class which extends the Product class. It has the required attributes and methods. PackagedItem class is a subclass of the Product class
 // Inheritance is used here
 class PackagedItem extends Product {
-    // PackagedItem class has the following attributes
+    // PackagedItem class with the following attributes
     private int quantity;
     private String useByDate;
 
+    // constructor for the PackagedItem class with the required parameters
     public PackagedItem(String id, String name, String type, double price, int quantity, String useByDate) {
         super(id, name, type, price);
         this.quantity = quantity;
         this.useByDate = useByDate;
         setAmount(price*0.1);
     }
+
+    // getters and setters for the attributes of the PackagedItem class
 
     public int getQuantity() {
         return quantity;
@@ -136,6 +139,8 @@ class PackagedItem extends Product {
         return useByDate;
     }
 
+    // PolyMorphism is used here. toString method is overridden here
+    // toString method is overridden here
     @Override
     public String toString() {
         return super.toString()+"\nQuantity: " + quantity+"\nUse-By Date: "+useByDate;
@@ -156,24 +161,33 @@ class PackagedItem extends Product {
 // }
 
 
+// Supermarket class with the required attributes and methods
+// Composition is used here
 public class Supermarket {
+    // List<Product> products = new ArrayList<>(); is used to store the products in the supermarket
     private List<Product> products;
 
+    // constructor for the Supermarket class
     public Supermarket() {
         products = new ArrayList<>();
     }
 
+    // addProduct method is used to add products to the supermarket
     public void addProduct(Product product) {
         products.add(product);
     }
 
-    public void displatMenu() {
+    // displayMenu method is used to display the products in the supermarket
+
+    public void displayMenu() {
         System.out.println("Product Menu:");
         for (Product product : products) {
             System.out.println(product);
             System.out.println();
         }
     }
+
+    // calculateTotalAmount method is used to calculate the total amount of the selected products
 
     public double calculateTotalAmount(List<String> selectedProductIds) {
         double totalAmount = 0.0;
@@ -185,6 +199,7 @@ public class Supermarket {
         return totalAmount;
     }
 
+    // calculateTotalTax method is used to calculate the total tax of the selected products
     public double calculateTotalTax(List<String> selectedProductIds) {
         double totalTax = 0.0;
         for (Product product : products) {
@@ -195,7 +210,9 @@ public class Supermarket {
         return totalTax;
     }
 
+    // main method to run the program. It is used to add products to the supermarket and display the menu
     public static void main(String[] args) {
+        // Create a new supermarket object to add products
         Supermarket supermarket = new Supermarket();
 
         // Add fresh fruits to the supermarket
@@ -213,11 +230,13 @@ public class Supermarket {
         supermarket.addProduct(new PackagedItem("P005", "Chips", "Snacks", 2.0, 5, "25/12/2020"));
 
         // Display the product menu
-        supermarket.displatMenu();
+        supermarket.displayMenu();
 
         // Ask users to select products
         Scanner scanner = new Scanner(System.in);
+        // a list to store the selected product ids
         List<String> selectedProductIds = new ArrayList<>();
+        // input variable to store the user input
         String input;
         do {
             System.out.print("Enter the ID of the product you want to buy (or 'done' to finish): ");
@@ -229,13 +248,16 @@ public class Supermarket {
 
         // Calculate and display the docket
         System.out.println("Docket:");
+        // to display the selected products
         double totalAmount = supermarket.calculateTotalAmount(selectedProductIds);
         double totalTax = supermarket.calculateTotalTax(selectedProductIds);
         double grandTotal = totalAmount + totalTax;
+        //  to display Total Amount Due, Total Tax and Grand Total
         System.out.println("Total Amount Due: $ " + totalAmount);
         System.out.println("Total Tax: $ " + totalTax);
         System.out.println("Grand Total: $ " + grandTotal);
 
+        // closing the scanner object. scanner.close() is used always after using the scanner object
         scanner.close();
     }
 }
