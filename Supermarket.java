@@ -1,13 +1,17 @@
+// importing the required packages
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// Product class with the required attributes and methods
 class Product {
     private String id;
     private String name;
     private String type;
     private double price;
     private double amount;
+
+    // constructor for the Product class with the required parameters
 
     public Product(String id, String name, String type, double price) {
         this.id = id;
@@ -17,6 +21,7 @@ class Product {
         this.amount =0;
     }
 
+    // getters and setters for the attributes of the Product class
     public String getId() {
         return id;
     }
@@ -62,20 +67,26 @@ class Product {
     }
 
 
+    // toString method to display the details of the product. Polymorphism is used here
     @Override
     public String toString() {
         return "ID: "+id+"\nName: "+name+"\nType: "+type+"\nPrice: "+price+"\nAmount: "+(price+amount);
     }
 }
 
+// FreshFruit class which extends the Product class. It has the required attributes and methods. FreshFruit class is a subclass of the Product class
+// Inheritance is used here
 class FreshFruit extends Product {
+    // attributes of the FreshFruit class
     private double weight;
 
+    // constructor for the FreshFruit class with the required parameters
     public FreshFruit(String id, String name, String type, double price, double weight) {
         super(id, name, type, price);
         this.weight = weight;
     }
 
+    // getters and setters for the attributes of the FreshFruit class
     public double setWeight(double weight) {
         this.weight = weight;
         return weight;
@@ -85,13 +96,17 @@ class FreshFruit extends Product {
         return weight;
     }
 
+    // PolyMorphism is used here. toString method is overridden here
     @Override
     public String toString() {
         return super.toString()+"\nWeight: "+weight+" grams";
     }
 }
 
+// PackagedItem class which extends the Product class. It has the required attributes and methods. PackagedItem class is a subclass of the Product class
+// Inheritance is used here
 class PackagedItem extends Product {
+    // PackagedItem class has the following attributes
     private int quantity;
     private String useByDate;
 
@@ -139,7 +154,6 @@ class PackagedItem extends Product {
 //         System.out.println(milk);
 //     }
 // }
-
 
 
 public class Supermarket {
